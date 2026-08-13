@@ -3,32 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Шақыру / Приглашение</title>
+  <title>Айым & Мирас — Сырға салу & Құдалық</title>
 
-  <!-- Подключаем шрифты с полной поддержкой казахского языка -->
+  <!-- Подключаем изящные шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-color: #FAF7F2;
+      --bg-color: #FAF5F0;
       --card-bg: #FFFFFF;
-      --text-color: #2D2B2A;
-      --accent-color: #B88E62;
-      --accent-soft: #F2ECE1;
+      --text-main: #332C2E;
+      --pink-soft: #E8C5CE;
+      --pink-accent: #C48B9F;
+      --green-leaf: #7A8B7B;
+      --green-soft: #EBF0EC;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: var(--bg-color);
-      color: var(--text-color);
+      color: var(--text-main);
       display: flex;
       justify-content: center;
-      padding: 0;
       margin: 0;
+      padding: 0;
     }
 
     .container {
@@ -36,171 +38,447 @@
       max-width: 480px;
       background: var(--card-bg);
       min-height: 100vh;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      padding: 40px 24px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+      padding: 30px 20px 60px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    h1, h2, h3, .serif-font {
+    /* Фоновая иллюстрация */
+    .header-img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 12px;
+    }
+
+    h1, h2, h3, .serif {
       font-family: 'Cormorant Garamond', serif;
+    }
+
+    .subtitle {
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--pink-accent);
+      margin-bottom: 15px;
       font-weight: 600;
     }
 
-    .header-subtitle {
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: var(--accent-color);
-      margin-bottom: 12px;
+    .names {
+      font-size: 42px;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--text-main);
+      margin-bottom: 25px;
     }
 
-    h1.title {
-      font-size: 42px;
-      line-height: 1.1;
-      margin-bottom: 20px;
+    .names span {
+      display: block;
+      font-size: 28px;
+      color: var(--pink-accent);
+      font-style: italic;
+      margin: 5px 0;
+    }
+
+    .invitation-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #554E50;
+      margin: 20px 0;
+      padding: 0 10px;
+      font-weight: 400;
     }
 
     .date-badge {
       display: inline-block;
-      padding: 8px 20px;
-      border-top: 1px solid var(--accent-color);
-      border-bottom: 1px solid var(--accent-color);
+      padding: 10px 24px;
+      background: var(--green-soft);
+      border: 1px solid var(--green-leaf);
+      border-radius: 50px;
       font-size: 18px;
+      color: var(--green-leaf);
+      font-weight: 600;
       margin: 15px 0 30px;
-      font-family: 'Cormorant Garamond', serif;
     }
 
+    /* Секции */
     .section {
       margin: 40px 0;
-      padding-top: 20px;
-      border-top: 1px solid var(--accent-soft);
+      padding-top: 30px;
+      border-top: 1px dashed var(--pink-soft);
     }
 
-    h2.section-title {
-      font-size: 28px;
-      color: var(--accent-color);
-      margin-bottom: 16px;
-    }
-
-    p.text {
-      font-size: 15px;
-      line-height: 1.6;
-      color: #555;
-      margin-bottom: 15px;
-    }
-
-    /* Тайминг */
-    .timeline {
-      text-align: left;
-      margin: 20px 0;
-    }
-    .timeline-item {
-      display: flex;
-      margin-bottom: 15px;
-      align-items: baseline;
-    }
-    .timeline-time {
+    .section-title {
+      font-size: 30px;
+      color: var(--pink-accent);
+      margin-bottom: 18px;
       font-weight: 600;
-      color: var(--accent-color);
-      width: 70px;
-      font-size: 16px;
-    }
-    .timeline-desc {
-      font-size: 14px;
-      color: #444;
     }
 
-    /* Палитра дресс-кода */
-    .palette {
+    /* Таймер */
+    .timer-grid {
       display: flex;
       justify-content: center;
       gap: 12px;
-      margin-top: 15px;
-    }
-    .color-circle {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+      margin-top: 20px;
     }
 
-    /* Кнопка WhatsApp */
+    .timer-box {
+      background: var(--bg-color);
+      padding: 12px 10px;
+      border-radius: 12px;
+      min-width: 65px;
+      border: 1px solid var(--pink-soft);
+    }
+
+    .timer-num {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--pink-accent);
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .timer-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    /* Локация */
+    .location-card {
+      background: var(--bg-color);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid #F0E6EA;
+    }
+
+    .location-name {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .location-address {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    /* Стили для Опроса (Формы) */
+    .rsvp-form {
+      text-align: left;
+      background: var(--bg-color);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid #F0E6EA;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .form-group input[type="text"],
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--pink-soft);
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      background: #FFF;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input[type="text"]:focus,
+    .form-group select:focus {
+      border-color: var(--pink-accent);
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #FFF;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--pink-soft);
+      transition: background-color 0.2s;
+    }
+
+    .radio-label:hover {
+      background-color: #FAF0F3;
+    }
+
+    .radio-label input[type="radio"] {
+      accent-color: var(--pink-accent);
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Кнопки */
     .btn {
       display: block;
       width: 100%;
       padding: 16px;
-      background-color: var(--accent-color);
+      background-color: var(--pink-accent);
       color: #FFF;
-      text-decoration: none;
-      border-radius: 8px;
+      border: none;
+      border-radius: 12px;
       font-size: 15px;
       font-weight: 500;
       margin-top: 15px;
-      transition: background 0.3s;
+      box-shadow: 0 6px 18px rgba(196, 139, 159, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
     }
-    .btn:hover {
-      background-color: #9E774F;
+
+    .btn-green {
+      background-color: var(--green-leaf);
+      box-shadow: 0 6px 18px rgba(122, 139, 123, 0.3);
+    }
+
+    .hosts-box {
+      margin-top: 30px;
+      font-size: 16px;
+      font-style: italic;
+      color: var(--green-leaf);
+    }
+
+    /* Музыкальный плеер */
+    .music-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+      background: var(--pink-accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+      border: none;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    /* Анимации при скролле */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
 
+  <!-- Кнопка Музыки -->
+  <button class="music-btn" id="musicToggle" onclick="toggleMusic()">🎵</button>
+  <audio id="bgMusic" loop src="music.mp3"></audio>
+
   <div class="container">
     
+    <!-- Иллюстрация -->
+    <img src="header.png" alt="Гүлдер / Цветы" class="header-img animate-on-scroll">
+
     <!-- Шапка -->
-    <div class="header-subtitle">Тойға шақыру / Приглашение</div>
-    <h1 class="title">Армания & Әлия</h1>
-    <p class="text">Құрметті қонақтар! Сіздерді қуанышымызға ортақ болуға шақырамыз!</p>
+    <div class="subtitle animate-on-scroll">Сырға салу & Құдалық</div>
+    <h1 class="names animate-on-scroll">Айым <span>мен</span> Мирас</h1>
     
-    <div class="date-badge">25.09.2026 | 18:00</div>
-
-    <!-- Мекен-жайы / Локация -->
-    <div class="section">
-      <h2 class="section-title">Өтетін орны</h2>
-      <p class="text"><strong>«Ritz-Carlton» мейрамханасы</strong><br>Астана қ., Достық көшесі, 16</p>
-      <!-- Ссылка на 2GIS или Яндекс Карты -->
-      <a href="https://2gis.kz" target="_blank" class="btn" style="background-color: #EAE3D2; color: #2D2B2A;">Картадан ашу (2GIS)</a>
+    <!-- Текст приглашения -->
+    <div class="invitation-text animate-on-scroll">
+      Құрметті ағайын - туыс,<br>
+      нағашы - жиен, құда - жекжат,<br>
+      дос - жаран, әріптестер!<br><br>
+      Сіздерді <strong>Айымның сырға салу және де құдалық тойына</strong> арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
     </div>
 
-    <!-- Бағдарлама / Тайминг -->
-    <div class="section">
-      <h2 class="section-title">Бағдарлама</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-time">18:00</span>
-          <span class="timeline-desc">Қонақтардың жиналуы / Welcoming</span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">19:00</span>
-          <span class="timeline-desc">Салтанатты кештің басталуы</span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">23:00</span>
-          <span class="timeline-desc">Торт кесу және отшашу</span>
-        </div>
+    <!-- Дата и время -->
+    <div class="date-badge animate-on-scroll">29 Қыркүйек 2026 | 17:00</div>
+
+    <!-- Таймер -->
+    <div class="section animate-on-scroll">
+      <h2 class="section-title">Тойға дейін қалды:</h2>
+      <div class="timer-grid">
+        <div class="timer-box"><div class="timer-num" id="days">00</div><div class="timer-label">Күн</div></div>
+        <div class="timer-box"><div class="timer-num" id="hours">00</div><div class="timer-label">Сағат</div></div>
+        <div class="timer-box"><div class="timer-num" id="minutes">00</div><div class="timer-label">Минут</div></div>
+        <div class="timer-box"><div class="timer-num" id="seconds">00</div><div class="timer-label">Секунд</div></div>
       </div>
     </div>
 
-    <!-- Дресс-код -->
-    <div class="section">
-      <h2 class="section-title">Дресс-код</h2>
-      <p class="text">Кешіміздің сәнін келтіру үшін келесі түстердегі киімдерді таңдауыңызды өтінеміз:</p>
-      <div class="palette">
-        <div class="color-circle" style="background: #D8C4B6;"></div>
-        <div class="color-circle" style="background: #F5EFE6;"></div>
-        <div class="color-circle" style="background: #4F709C;"></div>
-        <div class="color-circle" style="background: #213555;"></div>
+    <!-- Место проведения -->
+    <div class="section animate-on-scroll">
+      <h2 class="section-title">Мекен-жайымыз</h2>
+      <div class="location-card">
+        <div class="location-name">«Тұран» мейрамханасы</div>
+        <div class="location-address">Астана қаласы,<br>Бауыржан Момышұлы даңғылы, 21</div>
+        <a href="https://2gis.kz/astana/search/Ресторан%20Тұран%20Момышұлы%2021" target="_blank" class="btn btn-green">📍 2GIS арқылы картадан ашу</a>
       </div>
     </div>
 
-    <!-- RSVP / Подтверждение -->
-    <div class="section">
-      <h2 class="section-title">Катысуыңызды растаңыз</h2>
-      <p class="text">15 қыркүйекке дейін қатысуыңызды білдіруіңізді сұраймыз:</p>
-      <!-- Вставьте ваш номер WhatsApp вместо 77001112233 -->
-      <a href="https://wa.me/77001112233?text=Сәлеметсіз%20бе!%20Мен%20шақыруды%20алдым,%20тойға%20барамын!" class="btn">WhatsApp арқылы жауап беру</a>
+    <!-- RSVP Опрос / Подтверждение -->
+    <div class="section animate-on-scroll">
+      <h2 class="section-title">Жауабыңызды күтеміз</h2>
+      <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Қатысуыңызды 20 қыркүйекке дейін растауыңызды сұраймыз:</p>
+
+      <form class="rsvp-form" onsubmit="sendToWhatsapp(event)">
+        <div class="form-group">
+          <label for="guestName">Аты-жөніңіз (Имя и Фамилия):</label>
+          <input type="text" id="guestName" placeholder="Мысалы: Арман - Айнұр" required>
+        </div>
+
+        <div class="form-group">
+          <label>Келесіз бе?</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="status" value="Иә, қуана келемін!" checked onchange="toggleCount(true)">
+              <span>Иә, қуана келемін ✨</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="status" value="Өкінішке орай, келе алмаймын" onchange="toggleCount(false)">
+              <span>Келе алмаймын 😔</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" id="countGroup">
+          <label for="guestCount">Қанша адам болып келесіздер?</label>
+          <select id="guestCount">
+            <option value="1 адам">1 адам</option>
+            <option value="2 адам (жұбайыммен)">2 адам (жұбайыммен)</option>
+            <option value="3+ адам (отбасымызбен)">3+ адам (отбасымызбен)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn">💬 Жауапты WhatsApp-қа жіберу</button>
+      </form>
+    </div>
+
+    <!-- Хозяева торжества -->
+    <div class="hosts-box animate-on-scroll">
+      Той иелері: <strong>Абзал мен Жанна</strong>
     </div>
 
   </div>
+
+  <script>
+    /* 1. Скрипт таймера */
+    const eventDate = new Date("Sep 29, 2026 17:00:00").getTime();
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+
+      if (diff > 0) {
+        document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+      }
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    /* 2. Музыкальный плеер */
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicToggle");
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        btn.innerText = "🔊";
+      } else {
+        music.pause();
+        btn.innerText = "🎵";
+      }
+    }
+
+    document.body.addEventListener('click', function() {
+      if (music.paused) {
+        music.play();
+        btn.innerText = "🔊";
+      }
+    }, { once: true });
+
+    /* 3. Переключение видимости выбора количества людей */
+    function toggleCount(show) {
+      const countGroup = document.getElementById('countGroup');
+      countGroup.style.display = show ? 'block' : 'none';
+    }
+
+    /* 4. Отправка результатов опроса в WhatsApp */
+    function sendToWhatsapp(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('guestName').value.trim();
+      const status = document.querySelector('input[name="status"]:checked').value;
+      const count = document.getElementById('guestCount').value;
+
+      let message = `Сәлеметсіз бе! 👋\n\n`;
+      message += `*Айым мен Мирастың тойына жауап:*\n`;
+      message += `👤 *Аты-жөні:* ${name}\n`;
+      message += `✨ *Қатысуы:* ${status}\n`;
+      
+      if (status.includes('келемін')) {
+        message += `👥 *Адам саны:* ${count}\n`;
+      }
+
+      const phone = "77025503385";
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      
+      window.open(url, '_blank');
+    }
+
+    /* 5. Анимации при прокрутке */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+  </script>
 
 </body>
 </html>
