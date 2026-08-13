@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шақыру / Приглашение</title>
+
+  <!-- Подключаем шрифты с полной поддержкой казахского языка -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #FAF7F2;
+      --card-bg: #FFFFFF;
+      --text-color: #2D2B2A;
+      --accent-color: #B88E62;
+      --accent-soft: #F2ECE1;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card-bg);
+      min-height: 100vh;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    h1, h2, h3, .serif-font {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+    }
+
+    .header-subtitle {
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+    }
+
+    h1.title {
+      font-size: 42px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .date-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      border-top: 1px solid var(--accent-color);
+      border-bottom: 1px solid var(--accent-color);
+      font-size: 18px;
+      margin: 15px 0 30px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .section {
+      margin: 40px 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--accent-soft);
+    }
+
+    h2.section-title {
+      font-size: 28px;
+      color: var(--accent-color);
+      margin-bottom: 16px;
+    }
+
+    p.text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    /* Тайминг */
+    .timeline {
+      text-align: left;
+      margin: 20px 0;
+    }
+    .timeline-item {
+      display: flex;
+      margin-bottom: 15px;
+      align-items: baseline;
+    }
+    .timeline-time {
+      font-weight: 600;
+      color: var(--accent-color);
+      width: 70px;
+      font-size: 16px;
+    }
+    .timeline-desc {
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* Палитра дресс-кода */
+    .palette {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .color-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+
+    /* Кнопка WhatsApp */
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background-color: var(--accent-color);
+      color: #FFF;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #9E774F;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Шапка -->
+    <div class="header-subtitle">Тойға шақыру / Приглашение</div>
+    <h1 class="title">Армания & Әлия</h1>
+    <p class="text">Құрметті қонақтар! Сіздерді қуанышымызға ортақ болуға шақырамыз!</p>
+    
+    <div class="date-badge">25.09.2026 | 18:00</div>
+
+    <!-- Мекен-жайы / Локация -->
+    <div class="section">
+      <h2 class="section-title">Өтетін орны</h2>
+      <p class="text"><strong>«Ritz-Carlton» мейрамханасы</strong><br>Астана қ., Достық көшесі, 16</p>
+      <!-- Ссылка на 2GIS или Яндекс Карты -->
+      <a href="https://2gis.kz" target="_blank" class="btn" style="background-color: #EAE3D2; color: #2D2B2A;">Картадан ашу (2GIS)</a>
+    </div>
+
+    <!-- Бағдарлама / Тайминг -->
+    <div class="section">
+      <h2 class="section-title">Бағдарлама</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-time">18:00</span>
+          <span class="timeline-desc">Қонақтардың жиналуы / Welcoming</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-time">19:00</span>
+          <span class="timeline-desc">Салтанатты кештің басталуы</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-time">23:00</span>
+          <span class="timeline-desc">Торт кесу және отшашу</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Дресс-код -->
+    <div class="section">
+      <h2 class="section-title">Дресс-код</h2>
+      <p class="text">Кешіміздің сәнін келтіру үшін келесі түстердегі киімдерді таңдауыңызды өтінеміз:</p>
+      <div class="palette">
+        <div class="color-circle" style="background: #D8C4B6;"></div>
+        <div class="color-circle" style="background: #F5EFE6;"></div>
+        <div class="color-circle" style="background: #4F709C;"></div>
+        <div class="color-circle" style="background: #213555;"></div>
+      </div>
+    </div>
+
+    <!-- RSVP / Подтверждение -->
+    <div class="section">
+      <h2 class="section-title">Катысуыңызды растаңыз</h2>
+      <p class="text">15 қыркүйекке дейін қатысуыңызды білдіруіңізді сұраймыз:</p>
+      <!-- Вставьте ваш номер WhatsApp вместо 77001112233 -->
+      <a href="https://wa.me/77001112233?text=Сәлеметсіз%20бе!%20Мен%20шақыруды%20алдым,%20тойға%20барамын!" class="btn">WhatsApp арқылы жауап беру</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
