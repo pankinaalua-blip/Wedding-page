@@ -62,7 +62,7 @@
       overflow: hidden;
     }
 
-    /* КНОПКА МУЗЫКИ (Яркая, зафиксированная, анимированная) */
+    /* КНОПКА МУЗЫКИ */
     .music-btn {
       position: fixed;
       top: 20px;
@@ -99,7 +99,7 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* 1. БЛОК ХЭДЕРА (ФОТО БЕЗ РАМОК С ПОЛУПРОЗРАЧНОСТЬЮ И БОЛЬШИМ ЗАГОЛОВКОМ) */
+    /* 1. БЛОК ХЭДЕРА */
     .hero-section {
       position: relative;
       width: 100%;
@@ -114,7 +114,6 @@
       padding: 40px 20px 60px;
     }
 
-    /* Градиентное затемнение снизу для лучшей читаемости */
     .hero-section::before {
       content: '';
       position: absolute;
@@ -187,7 +186,7 @@
       margin: 15px 0;
     }
 
-    /* 3. БЛОК С СЕРЫМ ФОТО (ДАТА, ВРЕМЯ, АДРЕС И ТОЙ ИЕЛЕРІ) */
+    /* 3. БЛОК С ФОТО (ДАТА, ВРЕМЯ, АДРЕС И ТОЙ ИЕЛЕРІ) */
     .details-photo-section {
       position: relative;
       width: 100%;
@@ -201,7 +200,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15, 12, 10, 0.72); /* Элегантный полупрозрачный темный фильтр */
+      background: rgba(15, 12, 10, 0.72);
     }
 
     .details-content {
@@ -257,7 +256,6 @@
       margin-bottom: 40px;
     }
 
-    /* Блок Той иелері (Ярко выделен) */
     .hosts-box {
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(8px);
@@ -342,7 +340,6 @@
       color: #FFFFFF;
     }
 
-    /* Затемнение третьего фото для чёткости формы */
     .rsvp-photo-section::before {
       content: '';
       position: absolute;
@@ -434,7 +431,7 @@
 
   <div class="site-wrapper">
 
-    <!-- Яркая анимированная кнопка музыки -->
+    <!-- Кнопка музыки -->
     <button class="music-btn" id="musicBtn">
       <span class="music-icon">🎵</span>
       <span id="musicText">Музыка</span>
@@ -444,12 +441,12 @@
       <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- 1. ХЭДЕР (ФОТО БЕЗ РАМОК С БОЛЬШИМ ЗАГОЛОВКОМ С ЗАВИТУШКАМИ) -->
+    <!-- 1. ХЭДЕР -->
     <section class="hero-section">
       <div class="hero-content">
         <div class="hero-subtitle">Сырға салу & Құдалық</div>
         <h1 class="hero-title">Айым & Мирас</h1>
-        <div class="hero-date-badge">29.09.2026 • Астана</div>
+        <div class="hero-date-badge">25.09.2026 • Астана</div>
       </div>
     </section>
 
@@ -464,10 +461,10 @@
       </p>
     </section>
 
-    <!-- 3. БЛОК С СЕРЫМ ФОТО (ОГРОМНОЕ ВРЕМЯ, АДРЕС И ТОЙ ИЕЛЕРІ) -->
+    <!-- 3. БЛОК С СЕРЫМ ФОТО -->
     <section class="details-photo-section">
       <div class="details-content">
-        <div class="huge-date">29 Қыркүйек 2026</div>
+        <div class="huge-date">25 Қыркүйек 2026</div>
         <div class="huge-time">17:00</div>
         
         <div class="venue-name">«Тұран» мейрамханасы</div>
@@ -508,7 +505,7 @@
       </div>
     </section>
 
-    <!-- 5. ОПРОСНИК / RSVP НА 3-ЕМ ЗАТЕМНЕННОМ ФОТО -->
+    <!-- 5. ОПРОСНИК / RSVP -->
     <section class="rsvp-photo-section">
       <div class="rsvp-container">
         <h2 class="rsvp-title">Жауабыңызды күтеміз</h2>
@@ -562,7 +559,7 @@
       isPlaying = !isPlaying;
     });
 
-    // Обратный отсчет (29 сентября 2026, 17:00)
+    // Обратный отсчет (25 сентября 2026, 17:00)
     const targetDate = new Date("Sep 25, 2026 17:00:00").getTime();
 
     function updateTimer() {
