@@ -3,290 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Айым & Мирас — Сырға салу & Құдалық</title>
-
-  <!-- Подключаем изящные шрифты -->
+  <title>Сырға салу & Құдалық — Айым мен Мирас</title>
+  
+  <!-- Шрифты Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-color: #FAF5F0;
+      --bg-color: #FAF6F0;
       --card-bg: #FFFFFF;
-      --text-main: #332C2E;
-      --pink-soft: #E8C5CE;
-      --pink-accent: #C48B9F;
-      --green-leaf: #7A8B7B;
-      --green-soft: #EBF0EC;
+      --accent-color: #B8860B; /* Благородное золото */
+      --text-main: #333333;
+      --text-muted: #666666;
+      --border-color: #E2D7C5;
+      --rose-shadow: rgba(220, 160, 175, 0.25);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      display: flex;
-      justify-content: center;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    body {
+      background-color: var(--bg-color);
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 15px;
+    }
+
     .container {
+      background-color: var(--card-bg);
       width: 100%;
       max-width: 480px;
-      background: var(--card-bg);
-      min-height: 100vh;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-      padding: 30px 20px 60px;
+      border-radius: 24px;
+      box-shadow: 0 15px 35px var(--rose-shadow);
+      padding: 40px 25px;
       text-align: center;
       position: relative;
+      border: 1px solid var(--border-color);
       overflow: hidden;
     }
 
-    /* Фоновая иллюстрация */
-    .header-img {
-      width: 100%;
-      max-width: 320px;
-      height: auto;
-      margin-bottom: 10px;
-      border-radius: 12px;
-    }
-
-    h1, h2, h3, .serif {
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .subtitle {
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: var(--pink-accent);
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    .names {
-      font-size: 42px;
-      font-weight: 600;
-      line-height: 1.1;
-      color: var(--text-main);
-      margin-bottom: 25px;
-    }
-
-    .names span {
-      display: block;
-      font-size: 28px;
-      color: var(--pink-accent);
-      font-style: italic;
-      margin: 5px 0;
-    }
-
-    .invitation-text {
-      font-size: 15px;
-      line-height: 1.8;
-      color: #554E50;
-      margin: 20px 0;
-      padding: 0 10px;
-      font-weight: 400;
-    }
-
-    .date-badge {
-      display: inline-block;
-      padding: 10px 24px;
-      background: var(--green-soft);
-      border: 1px solid var(--green-leaf);
-      border-radius: 50px;
-      font-size: 18px;
-      color: var(--green-leaf);
-      font-weight: 600;
-      margin: 15px 0 30px;
-    }
-
-    /* Секции */
-    .section {
-      margin: 40px 0;
-      padding-top: 30px;
-      border-top: 1px dashed var(--pink-soft);
-    }
-
-    .section-title {
-      font-size: 30px;
-      color: var(--pink-accent);
-      margin-bottom: 18px;
-      font-weight: 600;
-    }
-
-    /* Таймер */
-    .timer-grid {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .timer-box {
-      background: var(--bg-color);
-      padding: 12px 10px;
-      border-radius: 12px;
-      min-width: 65px;
-      border: 1px solid var(--pink-soft);
-    }
-
-    .timer-num {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--pink-accent);
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .timer-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      color: #777;
-      margin-top: 4px;
-    }
-
-    /* Локация */
-    .location-card {
-      background: var(--bg-color);
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid #F0E6EA;
-    }
-
-    .location-name {
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 6px;
-    }
-
-    .location-address {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 16px;
-      line-height: 1.5;
-    }
-
-    /* Стили для Опроса (Формы) */
-    .rsvp-form {
-      text-align: left;
-      background: var(--bg-color);
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid #F0E6EA;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 8px;
-    }
-
-    .form-group input[type="text"],
-    .form-group select {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid var(--pink-soft);
-      border-radius: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 14px;
-      background: #FFF;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .form-group input[type="text"]:focus,
-    .form-group select:focus {
-      border-color: var(--pink-accent);
-    }
-
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .radio-label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      cursor: pointer;
-      background: #FFF;
-      padding: 12px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--pink-soft);
-      transition: background-color 0.2s;
-    }
-
-    .radio-label:hover {
-      background-color: #FAF0F3;
-    }
-
-    .radio-label input[type="radio"] {
-      accent-color: var(--pink-accent);
-      width: 18px;
-      height: 18px;
-    }
-
-    /* Кнопки */
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      background-color: var(--pink-accent);
-      color: #FFF;
-      border: none;
-      border-radius: 12px;
-      font-size: 15px;
-      font-weight: 500;
-      margin-top: 15px;
-      box-shadow: 0 6px 18px rgba(196, 139, 159, 0.3);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-green {
-      background-color: var(--green-leaf);
-      box-shadow: 0 6px 18px rgba(122, 139, 123, 0.3);
-    }
-
-    .hosts-box {
-      margin-top: 30px;
-      font-size: 16px;
-      font-style: italic;
-      color: var(--green-leaf);
-    }
-
-    /* Музыкальный плеер */
+    /* Фоновая музыкальная кнопка */
     .music-btn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 50px;
-      height: 50px;
-      background: var(--pink-accent);
-      color: white;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border-color);
       border-radius: 50%;
+      width: 42px;
+      height: 42px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       cursor: pointer;
-      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      z-index: 10;
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .music-btn.playing {
       animation: pulse 2s infinite;
-      border: none;
     }
 
     @keyframes pulse {
@@ -295,10 +81,228 @@
       100% { transform: scale(1); }
     }
 
-    /* Анимации при скролле */
+    /* Оформление фотографии в стиле изящной арки */
+    .header-img-wrapper {
+      margin: 10px auto 25px auto;
+      display: inline-block;
+      position: relative;
+    }
+
+    .header-img {
+      width: 100%;
+      max-width: 270px;
+      height: auto;
+      border-radius: 135px 135px 20px 20px; /* Элегантный арочный изгиб */
+      box-shadow: 0 12px 30px rgba(184, 134, 11, 0.18), 0 8px 25px var(--rose-shadow);
+      border: 4px solid #FFFFFF;
+      display: block;
+      object-fit: cover;
+    }
+
+    .subtitle-top {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    h1.title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #2C2C2C;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .ornament {
+      font-size: 20px;
+      color: var(--accent-color);
+      margin: 15px 0;
+    }
+
+    .invitation-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+    }
+
+    .invitation-text strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Карточка с датой и местом */
+    .details-card {
+      background: #FAF8F5;
+      border: 1px dashed var(--border-color);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .date-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 5px;
+    }
+
+    .time-title {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .location-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .location-address {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+    }
+
+    .map-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn-map {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn-2gis {
+      background-color: #2EAA00;
+      color: #FFFFFF;
+    }
+
+    /* Обратный отсчет */
+    .timer-section {
+      margin-bottom: 30px;
+    }
+
+    .timer-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .timer-item {
+      background-color: #FAF8F5;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      width: 65px;
+      padding: 10px 0;
+    }
+
+    .timer-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .timer-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: lowercase;
+    }
+
+    /* Форма подтверждения (RSVP) */
+    .rsvp-section {
+      border-top: 1px solid var(--border-color);
+      padding-top: 25px;
+    }
+
+    .rsvp-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      background-color: #FAF8F5;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-color);
+      background-color: #FFFFFF;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background-color: var(--accent-color);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.9;
+    }
+
+    .hosts-text {
+      margin-top: 30px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: var(--accent-color);
+    }
+
+    /* Анимация проявления */
     .animate-on-scroll {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
       transition: all 0.8s ease-out;
     }
 
@@ -310,165 +314,154 @@
 </head>
 <body>
 
-  <!-- Кнопка Музыки -->
-  <button class="music-btn" id="musicToggle" onclick="toggleMusic()">🎵</button>
-  <audio id="bgMusic" loop src="music.mp3"></audio>
-
   <div class="container">
-    
-    <!-- Иллюстрация -->
-    <img src="header.png" alt="Гүлдер / Цветы" class="header-img animate-on-scroll">
+    <!-- Музыкальный плеер -->
+    <button class="music-btn" id="musicToggle" title="Музыка">🎵</button>
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Шапка -->
-    <div class="subtitle animate-on-scroll">Сырға салу & Құдалық</div>
-    <h1 class="names animate-on-scroll">Айым <span>мен</span> Мирас</h1>
+    <div class="subtitle-top animate-on-scroll">Шақыру</div>
+    <h1 class="title animate-on-scroll">Айым мен Мирас</h1>
     
+    <div class="header-img-wrapper animate-on-scroll">
+      <img src="header.png" alt="Айым мен Мирас" class="header-img">
+    </div>
+
+    <div class="ornament animate-on-scroll">✦ ✦ ✦</div>
+
     <!-- Текст приглашения -->
-    <div class="invitation-text animate-on-scroll">
+    <p class="invitation-text animate-on-scroll">
       Құрметті ағайын - туыс,<br>
       нағашы - жиен, құда - жекжат,<br>
       дос - жаран, әріптестер!<br><br>
       Сіздерді <strong>Айымның сырға салу және де құдалық тойына</strong> арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
+    </p>
+
+    <!-- Детали мероприятия -->
+    <div class="details-card animate-on-scroll">
+      <div class="date-title">29 Қыркүйек 2026</div>
+      <div class="time-title">Сағат 17:00-де</div>
+      <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 15px 0;">
+      <div class="location-name">«Тұран» мейрамханасы</div>
+      <div class="location-address">Астана қаласы, Бауыржан Момышұлы даңғылы, 21</div>
+      
+      <div class="map-buttons">
+        <a href="https://2gis.kz/astana/search/Ресторан%20Тұран%20Момышұлы%2021" target="_blank" class="btn-map btn-2gis">2GIS Картасы</a>
+      </div>
     </div>
 
-    <!-- Дата и время -->
-    <div class="date-badge animate-on-scroll">29 Қыркүйек 2026 | 17:00</div>
-
-    <!-- Таймер -->
-    <div class="section animate-on-scroll">
-      <h2 class="section-title">Тойға дейін қалды:</h2>
+    <!-- Обратный отсчет -->
+    <div class="timer-section animate-on-scroll">
+      <div class="timer-title">Тойға дейін қалды:</div>
       <div class="timer-grid">
-        <div class="timer-box"><div class="timer-num" id="days">00</div><div class="timer-label">Күн</div></div>
-        <div class="timer-box"><div class="timer-num" id="hours">00</div><div class="timer-label">Сағат</div></div>
-        <div class="timer-box"><div class="timer-num" id="minutes">00</div><div class="timer-label">Минут</div></div>
-        <div class="timer-box"><div class="timer-num" id="seconds">00</div><div class="timer-label">Секунд</div></div>
+        <div class="timer-item">
+          <div class="timer-value" id="days">00</div>
+          <div class="timer-label">күн</div>
+        </div>
+        <div class="timer-item">
+          <div class="timer-value" id="hours">00</div>
+          <div class="timer-label">сағат</div>
+        </div>
+        <div class="timer-item">
+          <div class="timer-value" id="minutes">00</div>
+          <div class="timer-label">минут</div>
+        </div>
+        <div class="timer-item">
+          <div class="timer-value" id="seconds">00</div>
+          <div class="timer-label">секунд</div>
+        </div>
       </div>
     </div>
 
-    <!-- Место проведения -->
-    <div class="section animate-on-scroll">
-      <h2 class="section-title">Мекен-жайымыз</h2>
-      <div class="location-card">
-        <div class="location-name">«Тұран» мейрамханасы</div>
-        <div class="location-address">Астана қаласы,<br>Бауыржан Момышұлы даңғылы, 21</div>
-        <a href="https://2gis.kz/astana/search/Ресторан%20Тұран%20Момышұлы%2021" target="_blank" class="btn btn-green">📍 2GIS арқылы картадан ашу</a>
-      </div>
-    </div>
-
-    <!-- RSVP Опрос / Подтверждение -->
-    <div class="section animate-on-scroll">
-      <h2 class="section-title">Жауабыңызды күтеміз</h2>
-      <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Қатысуыңызды 20 қыркүйекке дейін растауыңызды сұраймыз:</p>
-
-      <form class="rsvp-form" onsubmit="sendToWhatsapp(event)">
+    <!-- Форма RSVP -->
+    <div class="rsvp-section animate-on-scroll">
+      <div class="rsvp-title">Жауабыңызды күтеміз</div>
+      <form id="rsvpForm">
         <div class="form-group">
-          <label for="guestName">Аты-жөніңіз (Имя и Фамилия):</label>
-          <input type="text" id="guestName" placeholder="Мысалы: Арман - Айнұр" required>
+          <label for="guestName">Аты-жөніңіз:</label>
+          <input type="text" id="guestName" class="form-control" placeholder="Мысалы: Арман мен Айгүл" required>
         </div>
-
+        
         <div class="form-group">
-          <label>Келесіз бе?</label>
-          <div class="radio-group">
-            <label class="radio-label">
-              <input type="radio" name="status" value="Иә, қуана келемін!" checked onchange="toggleCount(true)">
-              <span>Иә, қуана келемін ✨</span>
-            </label>
-            <label class="radio-label">
-              <input type="radio" name="status" value="Өкінішке орай, келе алмаймын" onchange="toggleCount(false)">
-              <span>Келе алмаймын 😔</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="form-group" id="countGroup">
-          <label for="guestCount">Қанша адам болып келесіздер?</label>
-          <select id="guestCount">
-            <option value="1 адам">1 адам</option>
-            <option value="2 адам (жұбайыммен)">2 адам (жұбайыммен)</option>
-            <option value="3+ адам (отбасымызбен)">3+ адам (отбасымызбен)</option>
+          <label for="guestStatus">Қатысуыңыз:</label>
+          <select id="guestStatus" class="form-control" required>
+            <option value="Келеміз">Өкінішке орай, келе алмаймыз</option>
+            <option value="Келеміз" selected>Куанышпен келеміз!</option>
           </select>
         </div>
 
-        <button type="submit" class="btn">💬 Жауапты WhatsApp-қа жіберу</button>
+        <div class="form-group">
+          <label for="guestCount">Қонақтар саны:</label>
+          <input type="number" id="guestCount" class="form-control" value="1" min="1" max="10">
+        </div>
+
+        <button type="submit" class="btn-submit">Жауапты жіберу (WhatsApp)</button>
       </form>
     </div>
 
-    <!-- Хозяева торжества -->
-    <div class="hosts-box animate-on-scroll">
-      Той иелері: <strong>Абзал мен Жанна</strong>
+    <!-- Той иелері -->
+    <div class="hosts-text animate-on-scroll">
+      Той иелері: Абзал - Жанна
     </div>
-
   </div>
 
   <script>
-    /* 1. Скрипт таймера */
-    const eventDate = new Date("Sep 29, 2026 17:00:00").getTime();
+    // Плеер музыки
+    const musicToggle = document.getElementById('musicToggle');
+    const bgMusic = document.getElementById('bgMusic');
+    let isPlaying = false;
+
+    musicToggle.addEventListener('click', () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicToggle.classList.remove('playing');
+        musicToggle.textContent = '🎵';
+      } else {
+        bgMusic.play();
+        musicToggle.classList.add('playing');
+        musicToggle.textContent = '🎶';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // Таймер обратного отсчета (29 сентября 2026, 17:00)
+    const targetDate = new Date("Sep 29, 2026 17:00:00").getTime();
 
     function updateTimer() {
       const now = new Date().getTime();
-      const diff = eventDate - now;
+      const difference = targetDate - now;
 
-      if (diff > 0) {
-        document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-        document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
       }
     }
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    /* 2. Музыкальный плеер */
-    const music = document.getElementById("bgMusic");
-    const btn = document.getElementById("musicToggle");
-
-    function toggleMusic() {
-      if (music.paused) {
-        music.play();
-        btn.innerText = "🔊";
-      } else {
-        music.pause();
-        btn.innerText = "🎵";
-      }
-    }
-
-    document.body.addEventListener('click', function() {
-      if (music.paused) {
-        music.play();
-        btn.innerText = "🔊";
-      }
-    }, { once: true });
-
-    /* 3. Переключение видимости выбора количества людей */
-    function toggleCount(show) {
-      const countGroup = document.getElementById('countGroup');
-      countGroup.style.display = show ? 'block' : 'none';
-    }
-
-    /* 4. Отправка результатов опроса в WhatsApp */
-    function sendToWhatsapp(event) {
-      event.preventDefault();
-      
-      const name = document.getElementById('guestName').value.trim();
-      const status = document.querySelector('input[name="status"]:checked').value;
+    // Отправка формы в WhatsApp
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('guestName').value;
+      const status = document.getElementById('guestStatus').value;
       const count = document.getElementById('guestCount').value;
 
-      let message = `Сәлеметсіз бе! 👋\n\n`;
-      message += `*Айым мен Мирастың тойына жауап:*\n`;
-      message += `👤 *Аты-жөні:* ${name}\n`;
-      message += `✨ *Қатысуы:* ${status}\n`;
-      
-      if (status.includes('келемін')) {
-        message += `👥 *Адам саны:* ${count}\n`;
-      }
-
       const phone = "77025503385";
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      
-      window.open(url, '_blank');
-    }
+      const message = `Сәлеметсіз бе! Сырға салу тойына жауап:%0A%0A👤 Есімі: ${encodeURIComponent(name)}%0AСтатус: ${encodeURIComponent(status)}%0A👥 Қонақтар саны: ${count}`;
 
-    /* 5. Анимации при прокрутке */
+      window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    });
+
+    // Анимация при скролле
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -477,8 +470,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
   </script>
-
 </body>
 </html>
