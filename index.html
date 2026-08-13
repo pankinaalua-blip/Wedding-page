@@ -5,20 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Сырға салу & Құдалық — Айым мен Мирас</title>
   
-  <!-- Шрифты Google Fonts -->
+  <!-- Премиум шрифты Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-color: #FAF6F0;
-      --card-bg: #FFFFFF;
-      --accent-color: #B8860B; /* Благородное золото */
-      --text-main: #333333;
-      --text-muted: #666666;
-      --border-color: #E2D7C5;
-      --rose-shadow: rgba(220, 160, 175, 0.25);
+      --bg-gradient: linear-gradient(180deg, #FAF5EE 0%, #F5EBE1 50%, #EFE3D3 100%);
+      --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+      --gold-border: linear-gradient(135deg, #D4AF37, #FFF2A1, #AA771C);
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --text-main: #2B231D;
+      --text-muted: #6B5E52;
+      --gold-shadow: rgba(191, 149, 63, 0.25);
+      --rose-shadow: rgba(225, 175, 185, 0.3);
     }
 
     * {
@@ -28,63 +29,104 @@
     }
 
     body {
-      background-color: var(--bg-color);
+      background: var(--bg-gradient);
       font-family: 'Montserrat', sans-serif;
       color: var(--text-main);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 20px 15px;
+      padding: 25px 15px;
     }
 
+    /* Главная роскошная карточка */
     .container {
-      background-color: var(--card-bg);
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
       width: 100%;
       max-width: 480px;
-      border-radius: 24px;
-      box-shadow: 0 15px 35px var(--rose-shadow);
-      padding: 40px 25px;
+      border-radius: 32px;
+      box-shadow: 0 20px 50px var(--gold-shadow), 0 10px 25px var(--rose-shadow);
+      padding: 45px 25px;
       text-align: center;
       position: relative;
-      border: 1px solid var(--border-color);
-      overflow: hidden;
+      border: 2px solid transparent;
+      background-clip: padding-box;
     }
 
-    /* Фоновая музыкальная кнопка */
+    /* Золотая тонкая рамка вокруг всей карточки */
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -2px; bottom: -2px; left: -2px; right: -2px;
+      background: var(--gold-border);
+      border-radius: 34px;
+      z-index: -1;
+    }
+
+    /* Музыкальная кнопка */
     .music-btn {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--border-color);
+      top: 22px;
+      right: 22px;
+      background: linear-gradient(135deg, #FFFFFF, #FFF9EB);
+      border: 1px solid #D4AF37;
       border-radius: 50%;
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 5px 15px rgba(180, 140, 50, 0.2);
       z-index: 10;
-      font-size: 18px;
-      transition: transform 0.3s ease;
+      font-size: 20px;
+      transition: all 0.3s ease;
     }
 
     .music-btn.playing {
-      animation: pulse 2s infinite;
+      animation: spin-pulse 3s infinite linear;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.08); }
-      100% { transform: scale(1); }
+    @keyframes spin-pulse {
+      0% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.1) rotate(180deg); }
+      100% { transform: scale(1) rotate(360deg); }
     }
 
-    /* Оформление фотографии в стиле изящной арки */
+    /* Подзаголовок */
+    .subtitle-top {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    /* Главные имена с золотым переливом */
+    h1.title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 22px;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 10px rgba(191, 149, 63, 0.15);
+    }
+
+    /* Золотое обрамление портрета */
     .header-img-wrapper {
       margin: 10px auto 25px auto;
       display: inline-block;
+      padding: 6px;
+      background: var(--gold-border);
+      border-radius: 145px 145px 28px 28px;
+      box-shadow: 0 15px 35px rgba(180, 140, 50, 0.25), 0 8px 20px var(--rose-shadow);
       position: relative;
     }
 
@@ -92,42 +134,26 @@
       width: 100%;
       max-width: 270px;
       height: auto;
-      border-radius: 135px 135px 20px 20px; /* Элегантный арочный изгиб */
-      box-shadow: 0 12px 30px rgba(184, 134, 11, 0.18), 0 8px 25px var(--rose-shadow);
-      border: 4px solid #FFFFFF;
+      border-radius: 138px 138px 22px 22px;
+      border: 3px solid #FFFFFF;
       display: block;
       object-fit: cover;
     }
 
-    .subtitle-top {
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent-color);
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    h1.title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
-      font-weight: 700;
-      color: #2C2C2C;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .ornament {
-      font-size: 20px;
-      color: var(--accent-color);
-      margin: 15px 0;
+    /* Казахский национальный орнамент */
+    .ornament-svg {
+      width: 160px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
     }
 
     .invitation-text {
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.8;
       color: var(--text-muted);
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      padding: 0 10px;
     }
 
     .invitation-text strong {
@@ -135,118 +161,126 @@
       font-weight: 600;
     }
 
-    /* Карточка с датой и местом */
+    /* Торжественная карточка даты и места */
     .details-card {
-      background: #FAF8F5;
-      border: 1px dashed var(--border-color);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 25px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 100%);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 20px;
+      padding: 25px 20px;
+      margin-bottom: 30px;
+      box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.05), 0 8px 20px rgba(0,0,0,0.03);
+      position: relative;
     }
 
     .date-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 700;
-      color: var(--accent-color);
-      margin-bottom: 5px;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
     }
 
     .time-title {
       font-size: 14px;
       color: var(--text-muted);
-      margin-bottom: 15px;
+      margin-bottom: 18px;
       font-weight: 500;
+      letter-spacing: 1px;
     }
 
     .location-name {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 4px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
     }
 
     .location-address {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 15px;
-    }
-
-    .map-buttons {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    .btn-map {
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.3s ease;
+      margin-bottom: 18px;
     }
 
     .btn-2gis {
-      background-color: #2EAA00;
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 25px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      background: linear-gradient(135deg, #2EAA00, #248A00);
       color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(46, 170, 0, 0.25);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-2gis:active {
+      transform: scale(0.96);
     }
 
     /* Обратный отсчет */
     .timer-section {
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
 
     .timer-title {
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 15px;
+      font-weight: 600;
     }
 
     .timer-grid {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .timer-item {
-      background-color: #FAF8F5;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      width: 65px;
-      padding: 10px 0;
+      background: #FFFFFF;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 14px;
+      width: 68px;
+      padding: 12px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
     }
 
     .timer-value {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
-      color: var(--accent-color);
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .timer-label {
       font-size: 10px;
       color: var(--text-muted);
       text-transform: lowercase;
+      margin-top: 2px;
     }
 
-    /* Форма подтверждения (RSVP) */
+    /* Форма RSVP */
     .rsvp-section {
-      border-top: 1px solid var(--border-color);
-      padding-top: 25px;
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+      padding-top: 30px;
     }
 
     .rsvp-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 700;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
+      color: var(--text-main);
     }
 
     .form-group {
-      margin-bottom: 12px;
+      margin-bottom: 15px;
       text-align: left;
     }
 
@@ -254,56 +288,85 @@
       display: block;
       font-size: 12px;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      font-weight: 500;
     }
 
     .form-control {
       width: 100%;
-      padding: 12px 15px;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
+      padding: 14px 16px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
       font-family: 'Montserrat', sans-serif;
       font-size: 14px;
-      background-color: #FAF8F5;
+      background-color: #FFFFFF;
       outline: none;
+      transition: border-color 0.3s ease;
     }
 
     .form-control:focus {
-      border-color: var(--accent-color);
-      background-color: #FFFFFF;
+      border-color: #B8860B;
+      box-shadow: 0 0 8px rgba(184, 134, 11, 0.2);
     }
 
+    /* Роскошная сияющая кнопка отправки */
     .btn-submit {
       width: 100%;
-      padding: 14px;
-      background-color: var(--accent-color);
+      padding: 16px;
+      background: var(--gold-gradient);
       color: #FFFFFF;
       border: none;
-      border-radius: 10px;
-      font-size: 14px;
+      border-radius: 14px;
+      font-size: 15px;
       font-weight: 600;
       cursor: pointer;
-      margin-top: 10px;
-      transition: opacity 0.3s ease;
+      margin-top: 12px;
+      box-shadow: 0 8px 20px rgba(184, 134, 11, 0.35);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     }
 
-    .btn-submit:hover {
-      opacity: 0.9;
+    .btn-submit::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 70%
+      );
+      transform: rotate(30deg);
+      animation: shine 4s infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) rotate(30deg); }
+      20% { transform: translateX(100%) rotate(30deg); }
+      100% { transform: translateX(100%) rotate(30deg); }
     }
 
     .hosts-text {
-      margin-top: 30px;
+      margin-top: 35px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: 22px;
       font-style: italic;
-      color: var(--accent-color);
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
     }
 
-    /* Анимация проявления */
+    /* Анимации появления */
     .animate-on-scroll {
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
+      transform: translateY(25px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .animate-on-scroll.visible {
@@ -325,11 +388,25 @@
     <div class="subtitle-top animate-on-scroll">Шақыру</div>
     <h1 class="title animate-on-scroll">Айым мен Мирас</h1>
     
+    <!-- Портрет в золотом обрамлении -->
     <div class="header-img-wrapper animate-on-scroll">
       <img src="header.png" alt="Айым мен Мирас" class="header-img">
     </div>
 
-    <div class="ornament animate-on-scroll">✦ ✦ ✦</div>
+    <!-- Казахский изящный орнамент -->
+    <svg class="ornament-svg animate-on-scroll" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 10H80M120 10H200" stroke="url(#gold)" stroke-width="1.5"/>
+      <path d="M100 2C95 6 90 10 100 18C110 10 105 6 100 2Z" fill="url(#gold)"/>
+      <circle cx="88" cy="10" r="3" fill="url(#gold)"/>
+      <circle cx="112" cy="10" r="3" fill="url(#gold)"/>
+      <defs>
+        <linearGradient id="gold" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#BF953F"/>
+          <stop offset="0.5" stop-color="#FCF6BA"/>
+          <stop offset="1" stop-color="#AA771C"/>
+        </linearGradient>
+      </defs>
+    </svg>
 
     <!-- Текст приглашения -->
     <p class="invitation-text animate-on-scroll">
@@ -343,12 +420,12 @@
     <div class="details-card animate-on-scroll">
       <div class="date-title">29 Қыркүйек 2026</div>
       <div class="time-title">Сағат 17:00-де</div>
-      <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 15px 0;">
+      <div style="height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent); margin: 15px 0;"></div>
       <div class="location-name">«Тұран» мейрамханасы</div>
       <div class="location-address">Астана қаласы, Бауыржан Момышұлы даңғылы, 21</div>
       
-      <div class="map-buttons">
-        <a href="https://2gis.kz/astana/search/Ресторан%20Тұран%20Момышұлы%2021" target="_blank" class="btn-map btn-2gis">2GIS Картасы</a>
+      <div style="margin-top: 15px;">
+        <a href="https://2gis.kz/astana/search/Ресторан%20Тұран%20Момышұлы%2021" target="_blank" class="btn-2gis">📍 2GIS Картасынан ашу</a>
       </div>
     </div>
 
@@ -387,8 +464,8 @@
         <div class="form-group">
           <label for="guestStatus">Қатысуыңыз:</label>
           <select id="guestStatus" class="form-control" required>
-            <option value="Келеміз">Өкінішке орай, келе алмаймыз</option>
-            <option value="Келеміз" selected>Куанышпен келеміз!</option>
+            <option value="Куанышпен келеміз!" selected>Қуанышпен келеміз!</option>
+            <option value="Өкінішке орай, келе алмаймыз">Өкінішке орай, келе алмаймыз</option>
           </select>
         </div>
 
@@ -397,7 +474,7 @@
           <input type="number" id="guestCount" class="form-control" value="1" min="1" max="10">
         </div>
 
-        <button type="submit" class="btn-submit">Жауапты жіберу (WhatsApp)</button>
+        <button type="submit" class="btn-submit">Жауапты жіберу (WhatsApp) ✨</button>
       </form>
     </div>
 
@@ -408,7 +485,7 @@
   </div>
 
   <script>
-    // Плеер музыки
+    // Музыкальный плеер
     const musicToggle = document.getElementById('musicToggle');
     const bgMusic = document.getElementById('bgMusic');
     let isPlaying = false;
@@ -448,7 +525,7 @@
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // Отправка формы в WhatsApp
+    // Отправка в WhatsApp
     document.getElementById('rsvpForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('guestName').value;
@@ -461,14 +538,14 @@
       window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
     });
 
-    // Анимация при скролле
+    // Анимация скролла
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
 
     document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
   </script>
