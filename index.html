@@ -158,7 +158,7 @@
     /* 2. БЕЖЕВЫЙ БЛОК С ПРИГЛАСИТЕЛЬНЫМ ТЕКСТОМ */
     .invitation-section {
       background-color: var(--beige-bg);
-      padding: 50px 25px;
+      padding: 50px 25px 30px;
       text-align: center;
       position: relative;
     }
@@ -184,6 +184,27 @@
       font-weight: 700;
       display: block;
       margin: 15px 0;
+    }
+
+    /* ДОПОЛНИТЕЛЬНЫЙ БЛОК (ДЛЯ ВЗРОСЛЫХ) */
+    .no-kids-section {
+      background-color: var(--beige-bg);
+      padding: 10px 30px 40px;
+      text-align: center;
+    }
+
+    .no-kids-box {
+      border-top: 1px dashed rgba(212,175,55,0.5);
+      border-bottom: 1px dashed rgba(212,175,55,0.5);
+      padding: 20px 10px;
+    }
+
+    .no-kids-text {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      line-height: 1.6;
+      color: #8B5A2B;
+      font-style: italic;
     }
 
     /* 3. БЛОК С ФОТО (ДАТА, ВРЕМЯ, АДРЕС И ТОЙ ИЕЛЕРІ) */
@@ -461,6 +482,15 @@
       </p>
     </section>
 
+    <!-- ОТДЕЛЬНЫЙ БЛОК (БЕЗ ДЕТЕЙ) -->
+    <section class="no-kids-section">
+      <div class="no-kids-box">
+        <p class="no-kids-text">
+          Бұл — үлкендерге арналған ақ дастархан басындағы ерекше кеш. Сондықтан сіздерді балаларсыз, өздеріңіз ғана келіп, қуанышымызды бірге бөлісуге шақырамыз.
+        </p>
+      </div>
+    </section>
+
     <!-- 3. БЛОК С СЕРЫМ ФОТО -->
     <section class="details-photo-section">
       <div class="details-content">
@@ -520,7 +550,7 @@
           <div class="form-group">
             <label for="guestStatus">Келесіз бе?</label>
             <select id="guestStatus" class="form-input" required>
-              <option value="Қуанышпен келеміз!" selected>Қуанышпен келеміз!</option>
+              <option value="Қуана-қуана келеміз!" selected>Қуана-қуана келеміз!</option>
               <option value="Өкінішке орай, келе алмаймыз">Өкінішке орай, келе алмаймыз</option>
             </select>
           </div>
